@@ -25,10 +25,13 @@ function App() {
   <div>
     <NavbarComp />
 
+    <div className='pagina'>
+
+    
     <Routes>
       <Route path={"/"} element={isLoggedIn === true ? <Homepage /> : <AccessPage />}/>
       <Route path={"/crear-ruta"} element={isLoggedIn === true && <CrearRuta />}/>
-      <Route path={"/detalles-ruta"} element={isLoggedIn === true &&<DetallesRuta />}/>
+      <Route path={"/rutas/:rutaId"} element={isLoggedIn === true &&<DetallesRuta />}/>
       <Route path={"/rutas"} element={isLoggedIn === true &&<Rutas />}/>
       <Route path={"/rutas-provincia"} element={isLoggedIn === true &&<RutasProvincia />}/>
       <Route path={"/profile"} element={isLoggedIn === true &&<UserProfile />}/>
@@ -42,7 +45,7 @@ function App() {
 
 
     </Routes>
-
+</div>
     <Footer />
 
   </div>
