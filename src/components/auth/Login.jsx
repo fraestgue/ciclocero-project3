@@ -34,6 +34,8 @@ function Login() {
       await authenticateUser();
 
       //aqui queremos que se muestre la pagina home al estar logeado, no redirigir
+      
+
     } catch (error) {
       console.log(error);
       let errorCode = error.response.status;

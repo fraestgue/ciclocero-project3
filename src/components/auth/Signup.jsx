@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import service from "../../service/config.service";
 
-function Signup() {
+function Signup(props) {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -26,15 +26,18 @@ function Signup() {
     try {
       await service.post("/auth/signup", newUser);
       //como esta en la misma pagina, como hacer el cambio a login
+      props.setCualFormSeVe("login")
+
     } catch (error) {
+      console.log(error)
       let errorCode = error.response.status;
       let errorMessage = error.response.data.message;
       if (errorCode === 400) {
         setErrorMessage(errorMessage);
-      } else
+      } else{
         console.log(error);
 
-        navigate("/error500") 
+        navigate("/error500") }
     }
   };
 
