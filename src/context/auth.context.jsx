@@ -1,7 +1,8 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
+import service from "../service/config.service";
 
-const AuthConext = createContext();
+const AuthContext = createContext();
 
 function AuthWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -29,10 +30,10 @@ function AuthWrapper(props) {
   }, []);
 
   return (
-    <AuthConext.Provider value={passedContext}>
+    <AuthContext.Provider value={passedContext}>
       {props.children}
-    </AuthConext.Provider>
+    </AuthContext.Provider>
   );
 }
 
-export { AuthConext, AuthWrapper };
+export { AuthContext, AuthWrapper };

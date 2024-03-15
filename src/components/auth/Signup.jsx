@@ -33,7 +33,8 @@ function Signup() {
         setErrorMessage(errorMessage);
       } else
         console.log(error);
-        //navigate() redireccionar a pagin error
+
+        navigate("/error500") 
     }
   };
 
@@ -48,6 +49,7 @@ function Signup() {
           name="email"
           value={email}
           onChange={handleEmailChange}
+          placeholder="tu email"
         />
 
         <br />
@@ -58,6 +60,7 @@ function Signup() {
           name="username"
           value={username}
           onChange={handleUsernameChange}
+          placeholder="username"
         />
 
         <br />
@@ -68,6 +71,7 @@ function Signup() {
           name="password"
           value={password}
           onChange={handlePasswordChange}
+          placeholder="*********"
         />
 
         <br />
