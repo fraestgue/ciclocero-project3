@@ -4,6 +4,7 @@ import App from "./App.jsx";
 import "./index.css";
 import { AuthWrapper } from "./context/auth.context.jsx";
 import { BrowserRouter } from "react-router-dom";
+import globalStyle from "./globalStyle.module.css"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
