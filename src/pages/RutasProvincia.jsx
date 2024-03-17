@@ -19,6 +19,7 @@ function RutasProvincia() {
                 `/rutas?provincia=${params.provincia}`
             );
             console.log(response.data);
+            setRutasProvincia(response.data)
         } catch (error) {
             // navigate("/error500");
             console.log(error);

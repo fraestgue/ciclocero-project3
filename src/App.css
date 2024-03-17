@@ -53,3 +53,8 @@
 .pagina {
   padding-top: 250px;
 }
+
+.leaflet-container {
+  height: 400px; 
+  width: 400px; 
+}
