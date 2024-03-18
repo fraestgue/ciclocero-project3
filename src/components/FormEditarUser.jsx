@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import service from "../service/config.service";
 
 function FormEditarUser() {
-  return (
-    <div>FormEditarUser</div>
-  )
+    return;
 }
 
-export default FormEditarUser
+export default FormEditarUser;
