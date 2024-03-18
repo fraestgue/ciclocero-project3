@@ -1,19 +1,31 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-    <link
-  rel="stylesheet"
-  href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
-  integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
-  crossorigin=""
-/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ciclocero</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+            integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+            crossorigin=""
+        />
+        <link rel="stylesheet" href="leaflet-routing-machine.css" />
+        <style>
+            .map {
+                position: absolute;
+                width: 50%;
+                height: 50%;
+            }
+        </style>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ciclocero</title>
+    </head>
+    <body>
+        <div id="root"></div>
+        <div id="map" class="map"></div>
+        <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+        <script src="leaflet-routing-machine.js"></script>
+        <script type="module" src="/src/main.jsx"></script>
+    </body>
 </html>

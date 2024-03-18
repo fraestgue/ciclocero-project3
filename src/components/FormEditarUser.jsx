@@ -1,41 +1,82 @@
 import React, { useState } from "react";
 import service from "../service/config.service";
 import { useNavigate } from "react-router-dom";
+import EditarUsername from "../components/EditarUsername";
+import EditarEmail from "../components/EditarEmail";
+import EditarPassword from "../components/EditarPassword";
+import EditarFotoUser from "../components/EditarFotoUser";
 
 function FormEditarUser(props) {
-    const [email, setEmail] = useState(props.profile.email);
-    const [username, setUsername] = useState(props.profile.username);
-    const [password, setPassword] = useState(props.profile.password);
+    const { profile, setProfile, profileFile, setProfileFile } = props;
+
+    const [isUpdateImgShowing, setIsUpdateImgShowing] = useState(false);
+    const [isUpdateUsernameShowing, setIsUpdateUsernameShowing] =
+        useState(false);
+    const [isUpdateEmailShowing, setIsUpdateEmailShowing] = useState(false);
+    const [isUpdatePasswordShowing, setIsUpdatePasswordShowing] =
+        useState(false);
+
     const navigate = useNavigate();
 
-    const handleEmail = (event) => setEmail(event.target.value);
-    const handleUsername = (event) => setUsername(event.target.value);
-    const handlePassword = (event) => setPassword(event.target.value);
+    const handleToggleUpdateImg = () =>
+        setIsUpdateImgShowing(!isUpdateImgShowing);
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        const actualizarUsername = {
-            username
-        };
-        const actualizarEmail = {
-            email
-        };
-        const actualizarPassword = {
-            password
-        };
+    const handleToggleUpdateUsername = () =>
+        setIsUpdateUsernameShowing(!isUpdateUsernameShowing);
 
-        try {
-            const responseUsername = await service.patch("/user/username", actualizarUsername);
-            const responseEmail = await service.patch("/user/email", actualizarEmail)
-            const responsePassword = await service.patch("/user/password", actualizarPassword)
+    const handleToggleUpdateEmail = () =>
+        setIsUpdateEmailShowing(!isUpdateEmailShowing);
 
-            
-        } catch (error) {
-            navigate("/error505");
-        }
-    };
+    const handleToggleUpdatePassword = () =>
+        setIsUpdatePasswordShowing(!isUpdatePasswordShowing);
 
-    return;
+    return (
+        <div>
+            <h3>
+                Edita tu perfil:
+                <button onClick={handleToggleUpdateImg}>
+                    Edita tu foto de perfil
+                </button>
+                <button onClick={handleToggleUpdateUsername}>
+                    Edita tu Username
+                </button>
+                <button onClick={handleToggleUpdateEmail}>
+                    Edita tu email
+                </button>
+                <button onClick={handleToggleUpdatePassword}>
+                    Modifica tu contraseña
+                </button>
+            </h3>
+
+            {isUpdateImgShowing === true ? (
+                <EditarFotoUser
+                    profileFile={profileFile}
+                    setProfileFile={setProfileFile}
+                    setProfile={setProfile}
+                    handleToggleUpdateImg={handleToggleUpdateImg}
+                />
+            ) : null}
+
+            {isUpdateUsernameShowing === true ? (
+                <EditarUsername
+                    profile={profile}
+                    handleToggleUpdateUsername={handleToggleUpdateUsername}
+                />
+            ) : null}
+            {isUpdateEmailShowing === true ? (
+                <EditarEmail
+                    profile={profile}
+                    handleToggleUpdateEmail={handleToggleUpdateEmail}
+                />
+            ) : null}
+            {isUpdatePasswordShowing === true ? (
+                <EditarPassword
+                    profile={profile}
+                    handleToggleUpdatePassword={handleToggleUpdatePassword}
+                />
+            ) : null}
+        </div>
+    );
 }
 
 export default FormEditarUser;

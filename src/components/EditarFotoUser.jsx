@@ -29,7 +29,7 @@ function EditarFotoUser(props) {
 
         try {
             const response = await service.patch("/upload", uploadData);
-            console.log(response.data)
+            console.log(response.data);
             // !IMPORTANT: Adapt the request structure to the one in your proyect (services, .env, auth, etc...)
 
             // (response.data.imageUrl);
@@ -40,6 +40,24 @@ function EditarFotoUser(props) {
             setIsUploading(false); // to stop the loading animation
         } catch (error) {
             navigate("/error");
+        }
+    };
+    const handleImage = async () => {
+        console.log(props.profileFile);
+        const actualizarImagenUser = {
+            image: props.profileFile
+        };
+        try {
+            const response = await service.patch(
+                "/user/image",
+                actualizarImagenUser
+            );
+            console.log(response);
+            props.setProfile(response.data);
+            props.setProfileFile(null);
+            props.handleToggleUpdateImg(false);
+        } catch (error) {
+            navigate("/error500");
         }
     };
     return (
@@ -64,11 +82,9 @@ function EditarFotoUser(props) {
                 {props.profileFile ? (
                     <div>
                         <img src={props.profileFile} alt="img" width={200} />
-                        <button onClick={props.handleImage}>Guarda tu imagen</button>
+                        <button onClick={handleImage}>Guarda tu imagen</button>
                     </div>
                 ) : null}
-
-                
             </div>
         </div>
     );
