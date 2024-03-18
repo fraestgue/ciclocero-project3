@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import service from "../service/config.service";
 import btnAtras from "../assets/btn-atras.png";
+import { Link } from "react-router-dom";
 
 function RutasProvincia() {
     const [rutasProvincia, setRutasProvincia] = useState(null);
@@ -27,6 +28,8 @@ function RutasProvincia() {
         }
     };
 
+    const handleBack = () => navigate(-1);
+
     return (
         <div>
             <button onClick={handleBack} className="btn-atras">
@@ -35,26 +38,33 @@ function RutasProvincia() {
 
             <p>RutasProvincia</p>
             {/* Esto sería para cuando vaya bien y muestre las rutas de cada provincia */}
-            {/* <div className="card-container">
-                {rutasProvincia.map((eachRuta) => {
-                    return (
-                        <Link to={`/rutas/${eachRuta._id}`} key={eachRuta._id}>
-                            <div className="card">
-                                <h3>{eachRuta.name}</h3>
-                                <img
-                                    src={eachRuta.image}
-                                    alt="imagen ruta"
-                                    width={"150px"}
-                                />
-                                <h4>Dificultad: {eachRuta.difficulty}</h4>
-                                <h4>Modalidad: {eachRuta.modalidad}</h4>
-                                <p>Provincia: {eachRuta.provincia}</p>
-                                <p>Km: {eachRuta.distanciaEnKm}</p>
-                            </div>
-                        </Link>
-                    );
-                })}
-            </div> */}
+            <div className="card-container">
+                {rutasProvincia === null ? (
+                    <h3>Aun no hay rutas en esta provincia</h3>
+                ) : (
+                    rutasProvincia.map((eachRuta) => {
+                        return (
+                            <Link
+                                to={`/rutas/${eachRuta._id}`}
+                                key={eachRuta._id}
+                            >
+                                <div className="card">
+                                    <h3>{eachRuta.name}</h3>
+                                    <img
+                                        src={eachRuta.image}
+                                        alt="imagen ruta"
+                                        width={"150px"}
+                                    />
+                                    <h4>Dificultad: {eachRuta.difficulty}</h4>
+                                    <h4>Modalidad: {eachRuta.modalidad}</h4>
+                                    <p>Provincia: {eachRuta.provincia}</p>
+                                    <p>Km: {eachRuta.distanciaEnKm}</p>
+                                </div>
+                            </Link>
+                        );
+                    })
+                )}
+            </div>
         </div>
     );
 }

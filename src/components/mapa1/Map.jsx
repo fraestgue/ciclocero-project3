@@ -6,7 +6,11 @@ import { Link } from "react-router-dom";
 function Map() {
     return (
         <div>
-            <p><strong><u>Elige provincia para ver sus rutas</u></strong></p>
+            <p>
+                <strong>
+                    <u>Elige provincia para ver sus rutas</u>
+                </strong>
+            </p>
             <ComposableMap
                 projection="geoMercator"
                 projectionConfig={{
@@ -23,18 +27,23 @@ function Map() {
                             const provinciaName = geo.properties.NAME_2;
                             return (
                                 // Este link es para llevar a la pagina de rutas por provincia al pinchar en el mapa
-                                // <Link to={`/rutas?provincia=${provinciaName}`}>
-                                <Geography
-                                    onClick={() => console.log(provinciaName)}
+                                <Link
+                                    to={`/rutas/provincia/${provinciaName}`}
                                     key={geo.rsmKey}
-                                    geography={geo}
-                                    style={{
-                                        hover: {
-                                            fill: "#FF331F"
+                                >
+                                    <Geography
+                                        onClick={() =>
+                                            console.log(provinciaName)
                                         }
-                                    }}
-                                />
-                                //  </Link>
+                                        geography={geo}
+                                        style={{
+                                            hover: {
+                                                fill: "#FF331F"
+                                            }
+                                        }}
+                                    />
+                                    //{" "}
+                                </Link>
                             );
                         });
                     }}

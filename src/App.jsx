@@ -45,7 +45,7 @@ function App() {
                         element={isLoggedIn === true && <Rutas />}
                     />
                     <Route
-                        path={"/rutas/:provincia"}
+                        path={"/rutas/provincia/:provincia"}
                         element={isLoggedIn === true && <RutasProvincia />}
                     />
                     <Route
