@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import service from '../service/config.service'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import ClickMarker from '../components/ClickMarker'
+import btnAtras from "../assets/btn-atras.png"
 
 function DetallesRuta() {
 
@@ -44,7 +45,9 @@ function DetallesRuta() {
 
   return (
     <div className='detalles-ruta'>
-      <button onClick={handleBack}>atrás</button>
+      <button onClick={handleBack} className="btn-atras">
+            <img src={btnAtras} alt="atras" width="25px"/>
+          </button>
 
       <h2>{detallesRuta.name}</h2>
       <img src={detallesRuta.image} alt={detallesRuta.name} width={"300px"} />

@@ -40,7 +40,7 @@ function SearchBar() {
 
     return (
         <div>
-            <div>
+            <div className="searchbar">
                 <input
                     className="barra"
                     autoFocus

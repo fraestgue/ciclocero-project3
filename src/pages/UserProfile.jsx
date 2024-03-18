@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import service from '../service/config.service'
 import { Link } from 'react-router-dom'
+import btnAtras from "../assets/btn-atras.png"
 
 function UserProfile() {
 
@@ -34,7 +35,9 @@ function UserProfile() {
 
   return (
     <div>
-      <button onClick={handleBack}>atrás</button>
+      <button onClick={handleBack} className="btn-atras">
+            <img src={btnAtras} alt="atras" width="25px"/>
+          </button>
       <div>
         <img src={profile.image} alt="foto de perfil" width={"150px"} />
         <h2>Username: {profile.username}</h2>

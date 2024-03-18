@@ -16,7 +16,7 @@ function Homepage() {
   return (
     <div className="homepage">
       <Link to={"/rutas"}>
-      <button>Ver todas las rutas</button>
+      <button className="btn-rutas">Ver todas las rutas</button>
       </Link>
 
       <div className={globalStyle.mapContainerWrapper}>
