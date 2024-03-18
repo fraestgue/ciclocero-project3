@@ -4,6 +4,7 @@ import service from "../service/config.service";
 import { Link } from "react-router-dom";
 import btnAtras from "../assets/btn-atras.png";
 import EditarFotoUser from "../components/EditarFotoUser";
+import FormEditarUser from "../components/FormEditarUser";
 
 function UserProfile() {
     const [profile, setProfile] = useState(null);
@@ -21,10 +22,27 @@ function UserProfile() {
             console.log(response.data);
             setProfile(response.data);
             setProfileFile(response.data.image);
+
         } catch (error) {
             navigate("/error500");
         }
     };
+
+    const handleImage = async () => {
+        console.log(profileFile)
+        const actualizarImagenUser = {
+            image: profileFile
+        }
+        try {
+            const response = await service.patch("/user/image", actualizarImagenUser)
+            console.log(response)
+            setProfile(response.data)
+            setProfileFile(null)
+            
+        } catch (error) {
+            navigate("/error500")
+        }
+    }
 
     if (profile === null) {
         return <h3>...buscando</h3>;
@@ -41,10 +59,14 @@ function UserProfile() {
                 <img src={profile.image} alt="foto de perfil" width={"150px"} />
                 <h3>
                     Edita tu foto de perfil:{" "}
-                    <EditarFotoUser setProfileFile={setProfileFile} />{" "}
+                    <EditarFotoUser profileFile={profileFile} setProfileFile={setProfileFile} handleImage={handleImage}/>{" "}
                 </h3>
                 <h2>Username: {profile.username}</h2>
                 <h3>Email: {profile.email}</h3>
+                <h3>
+                    Edita tu perfil: 
+                    <FormEditarUser profile={profile}/>
+                </h3>
             </div>
             <Link to={"/user-rutas"}>
                 <button>Tus rutas</button>

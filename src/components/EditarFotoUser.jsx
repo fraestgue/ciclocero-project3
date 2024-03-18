@@ -6,7 +6,7 @@ function EditarFotoUser(props) {
     // add to component where you are creating an item
 
     // below state will hold the image URL from cloudinary. This will come from the backend.
-    const [imageUrl, setImageUrl] = useState(null);
+    // const [imageUrl, setImageUrl] = useState(null);
     const [isUploading, setIsUploading] = useState(false); // for a loading animation effect
 
     const navigate = useNavigate();
@@ -29,9 +29,10 @@ function EditarFotoUser(props) {
 
         try {
             const response = await service.patch("/upload", uploadData);
+            console.log(response.data)
             // !IMPORTANT: Adapt the request structure to the one in your proyect (services, .env, auth, etc...)
 
-            setImageUrl(response.data.imageUrl);
+            // (response.data.imageUrl);
             props.setProfileFile(response.data.imageUrl);
             //                          |
             //     this is how the backend sends the image to the frontend => res.json({ imageUrl: req.file.path });
@@ -60,11 +61,14 @@ function EditarFotoUser(props) {
                 {/* to render a loading message or spinner while uploading the picture */}
                 {isUploading ? <h3>... uploading image</h3> : null}
                 {/* below line will render a preview of the image from cloudinary */}
-                {imageUrl ? (
+                {props.profileFile ? (
                     <div>
-                        <img src={imageUrl} alt="img" width={200} />
+                        <img src={props.profileFile} alt="img" width={200} />
+                        <button onClick={props.handleImage}>Guarda tu imagen</button>
                     </div>
                 ) : null}
+
+                
             </div>
         </div>
     );

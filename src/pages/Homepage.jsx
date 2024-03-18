@@ -4,7 +4,7 @@ import Login from '../components/auth/Login'
 import TextoSinLogin from '../components/TextoSinLogin'
 import { AuthContext } from '../context/auth.context'
 import { Link } from 'react-router-dom'
-import MapContainer from '../components/mapa1/MapContainer'
+import MapContainer from '../components/mapaDeProvincias/MapContainer'
 import globalStyle from "../globalStyle.module.css"
 
 

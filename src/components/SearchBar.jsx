@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import service from "../service/config.service";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function SearchBar() {
     const [searchQuery, setSearchQuery] = useState("");
@@ -13,11 +14,12 @@ function SearchBar() {
         if (searchQuery === "") {
             setSearchRuta(null);
             setSpinner(false);
+            return
         }
 
         const delay = setTimeout(async () => {
             try {
-                const response = service.get(`/rutas?query=${searchQuery}`);
+                const response = await service.get(`/rutas?provincia=${searchQuery}`);
                 console.log(response.data);
                 setSearchRuta(response.data);
                 setSpinner(false);
@@ -54,7 +56,7 @@ function SearchBar() {
             </div>
             <div></div>
 
-            {/* {searchRuta === null ? null : (
+            {searchRuta === null ? null : (
                 <div>
                     {searchRuta.map((eachRuta) => {
                         return (
@@ -65,13 +67,13 @@ function SearchBar() {
                                         alt="ruta"
                                         width={"120px"}
                                     />
-                                    <h3>{eachRutas.name}</h3>
+                                    <h3>{eachRuta.name}</h3>
                                 </Link>
                             </div>
                         );
                     })}
                 </div>
-            )} */}
+            )}
         </div>
     );
 }
