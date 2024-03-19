@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import service from "../service/config.service";
 import FotoReseña from "./FotoReseña";
 
 function FormCrearReseña(props) {
+    const params = useParams()
     const navigate = useNavigate();
     const [title, setTitle] = useState();
     const [description, setDescription] = useState();
@@ -26,16 +27,21 @@ function FormCrearReseña(props) {
         try {
             const response = await service.post("/reviews", nuevaReseña);
             console.log(response);
+            const responseReseñas = await service.get(
+                `/reviews/rutas/${params.rutaId}`
+            );
             //...spread para agregar la nueva review al array y que se actualice el setreview al hacer el submit
 
-            props.setReview((preArrReview) => [...preArrReview, response.data]);
+            props.setReview(responseReseñas.data);
             setTitle(response.data.title);
             setDescription(response.data.description);
             props.handleToggleUpdateForm(false);
         } catch (error) {
             navigate("/error500");
         }
-    };
+    }
+
+    
 
     return (
         <div>

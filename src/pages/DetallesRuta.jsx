@@ -5,18 +5,21 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import ClickMarker from "../components/ClickMarker";
 import btnAtras from "../assets/btn-atras.png";
 import FormCrearReseña from "../components/FormCrearReseña";
+import BorrarReseña from "../components/BorrarReseña";
+import MarcarPuntosRuta from "../components/MarcarPuntosRuta";
+import MostrarRuta from "../components/MostrarRuta";
 
 function DetallesRuta() {
     const [detallesRuta, setDetallesRuta] = useState(null);
     const [center, setCenter] = useState([40.034906, -4.121625]);
     const [clickedPosition, setClickedPosition] = useState(null);
-    const [review, setReview] = useState([]);
+    const [reviewArr, setReviewArr] = useState([]);
 
     const [isUpdateFormShowing, setIsUpdateFormShowing] = useState(false);
 
     const navigate = useNavigate();
     const params = useParams();
-    // console.log(params)
+    //console.log(params)
 
     useEffect(() => {
         getDetails();
@@ -31,7 +34,7 @@ function DetallesRuta() {
             console.log(responseRutas.data);
             console.log(responseReseñas.data);
             setDetallesRuta(responseRutas.data);
-            setReview(responseReseñas.data);
+            setReviewArr(responseReseñas.data);
             // setCenter(response.data.coordinates)
         } catch (error) {
             navigate("/error500");
@@ -76,10 +79,17 @@ function DetallesRuta() {
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
+                <MostrarRuta
+                    detallesRuta={detallesRuta}
+                    setDetallesRuta={setDetallesRuta}
+                    setClickedPosition={setClickedPosition}
+                />
+
+                {/* <MarcarPuntosRuta />
                 <ClickMarker setClickedPosition={setClickedPosition} />
                 {clickedPosition !== null && (
                     <Marker position={clickedPosition} />
-                )}
+                )} */}
             </MapContainer>
 
             <div>
@@ -88,22 +98,29 @@ function DetallesRuta() {
             {isUpdateFormShowing === true ? (
                 <FormCrearReseña
                     detallesRuta={detallesRuta}
-                    setReview={setReview}
+                    setReview={setReviewArr}
                     handleToggleUpdateForm={handleToggleUpdateForm}
                 />
             ) : null}
             <div>
                 <h3>Reseñas de la ruta:</h3>
-                {review.map((eachReview) => {
-                    console.log(eachReview);
-                    return (
-                        <div key={eachReview._id} className="card-review">
-                            <h4>{eachReview.title}</h4>
-                            <p>{eachReview.description}</p>
-                            <p>{eachReview.creador.username}</p>
-                        </div>
-                    );
-                })}
+                {reviewArr === null
+                    ? "Esta ruta aún no tiene reseñas"
+                    : reviewArr.map((eachReview) => {
+                          console.log(eachReview);
+                          return (
+                              <div key={eachReview._id} className="card-review">
+                                  <h4>{eachReview.title}</h4>
+                                  <p>{eachReview.description}</p>
+                                  <p>{eachReview.creador.username}</p>
+                                  <BorrarReseña
+                                      review={eachReview}
+                                      setReview={setReviewArr}
+                                      reviewArr={reviewArr}
+                                  />
+                              </div>
+                          );
+                      })}
             </div>
         </div>
     );
