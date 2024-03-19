@@ -123,3 +123,22 @@
   border-radius: 25px;
   box-shadow: 0 2px 2px black
 }
+
+
+.leaflet-container {
+  width:85vw;
+  height: 600px;
+  margin-left: 50px;
+}
+
+.card-review{
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  margin-bottom: 20px;
+  width: 80vw;
+  background-color: #FBC344;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px black;
+}

@@ -12,8 +12,10 @@ function EditarEmail(props) {
     const handleEmailSubmit = async (event) => {
         event.preventDefault();
         const uploadEmail = {
+            
             email
         };
+        console.log(uploadEmail)
 
         try {
             const response = await service.patch("/user/email", uploadEmail);

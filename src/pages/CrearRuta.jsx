@@ -30,7 +30,7 @@ function CrearRuta() {
                 />
                 <CrearMapaRuta />
             </MapContainer>
-            );
+            
         </div>
     );
 }

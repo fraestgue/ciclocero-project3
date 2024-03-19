@@ -64,7 +64,7 @@ function EditarFotoUser(props) {
         <div>
             {" "}
             <div>
-                {/* // ... in the JSX returned of the same component as above. */}
+                
                 <div>
                     <label>Image: </label>
                     <input
