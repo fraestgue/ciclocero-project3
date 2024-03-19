@@ -10,7 +10,7 @@ function DetallesRuta() {
     const [detallesRuta, setDetallesRuta] = useState(null);
     const [center, setCenter] = useState([40.034906, -4.121625]);
     const [clickedPosition, setClickedPosition] = useState(null);
-    const [review, setReview] = useState([])
+    const [review, setReview] = useState([]);
 
     const [isUpdateFormShowing, setIsUpdateFormShowing] = useState(false);
 
@@ -25,11 +25,13 @@ function DetallesRuta() {
     const getDetails = async () => {
         try {
             const responseRutas = await service.get(`/rutas/${params.rutaId}`);
-            const responseReseñas = await service.get(`/reviews/rutas/${params.rutaId}`)
+            const responseReseñas = await service.get(
+                `/reviews/rutas/${params.rutaId}`
+            );
             console.log(responseRutas.data);
-            console.log(responseReseñas.data)
+            console.log(responseReseñas.data);
             setDetallesRuta(responseRutas.data);
-            setReview(responseReseñas.data)
+            setReview(responseReseñas.data);
             // setCenter(response.data.coordinates)
         } catch (error) {
             navigate("/error500");
@@ -84,17 +86,24 @@ function DetallesRuta() {
                 <button onClick={handleToggleUpdateForm}>Deja tu review</button>
             </div>
             {isUpdateFormShowing === true ? (
-                <FormCrearReseña detallesRuta={detallesRuta} setReview={setReview} handleToggleUpdateForm={handleToggleUpdateForm}/>
+                <FormCrearReseña
+                    detallesRuta={detallesRuta}
+                    setReview={setReview}
+                    handleToggleUpdateForm={handleToggleUpdateForm}
+                />
             ) : null}
             <div>
-              <h3>Reseñas de la ruta:</h3>
-              {review.map((eachReview) => {
-                return(
-                <div key={eachReview._id} className="card-review">
-                  <h4>{eachReview.title}</h4>
-                  <p>{eachReview.description}</p>
-                </div>
-              )})}
+                <h3>Reseñas de la ruta:</h3>
+                {review.map((eachReview) => {
+                    console.log(eachReview);
+                    return (
+                        <div key={eachReview._id} className="card-review">
+                            <h4>{eachReview.title}</h4>
+                            <p>{eachReview.description}</p>
+                            <p>{eachReview.creador.username}</p>
+                        </div>
+                    );
+                })}
             </div>
         </div>
     );

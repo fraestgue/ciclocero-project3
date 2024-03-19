@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import service from "../service/config.service";
 import { useNavigate } from "react-router-dom";
 
-function EditarFotoUser(props) {
+export default function FotoReseña() {
     // add to component where you are creating an item
 
     // below state will hold the image URL from cloudinary. This will come from the backend.
-    // const [imageUrl, setImageUrl] = useState(null);
+    const [imageUrl, setImageUrl] = useState(null);
     const [isUploading, setIsUploading] = useState(false); // for a loading animation effect
 
     const navigate = useNavigate();
@@ -29,11 +29,9 @@ function EditarFotoUser(props) {
 
         try {
             const response = await service.post("/upload", uploadData);
-            console.log(response.data);
             // !IMPORTANT: Adapt the request structure to the one in your proyect (services, .env, auth, etc...)
 
-            // (response.data.imageUrl);
-            props.setProfileFile(response.data.imageUrl);
+            setImageUrl(response.data.imageUrl);
             //                          |
             //     this is how the backend sends the image to the frontend => res.json({ imageUrl: req.file.path });
 
@@ -42,51 +40,27 @@ function EditarFotoUser(props) {
             navigate("/error");
         }
     };
-    const handleImage = async () => {
-        console.log(props.profileFile);
-        const actualizarImagenUser = {
-            image: props.profileFile
-        };
-        try {
-            const response = await service.patch(
-                "/user/image",
-                actualizarImagenUser
-            );
-            console.log(response);
-            props.setProfile(response.data);
-            props.setProfileFile(null);
-            props.handleToggleUpdateImg(false);
-        } catch (error) {
-            navigate("/error500");
-        }
-    };
     return (
         <div>
-            {" "}
             <div>
-                <div>
-                    <label>Image: </label>
-                    <input
-                        type="file"
-                        name="image"
-                        onChange={handleFileUpload}
-                        disabled={isUploading}
-                    />
-                    {/* below disabled prevents the user from attempting another upload while one is already happening */}
-                </div>
-
-                {/* to render a loading message or spinner while uploading the picture */}
-                {isUploading ? <h3>... uploading image</h3> : null}
-                {/* below line will render a preview of the image from cloudinary */}
-                {props.profileFile ? (
-                    <div>
-                        <img src={props.profileFile} alt="img" width={200} />
-                        <button onClick={handleImage}>Guarda tu imagen</button>
-                    </div>
-                ) : null}
+                <label>Image: </label>
+                <input
+                    type="file"
+                    name="image"
+                    onChange={handleFileUpload}
+                    disabled={isUploading}
+                />
+                {/* below disabled prevents the user from attempting another upload while one is already happening */}
             </div>
+            ;
+            {/* to render a loading message or spinner while uploading the picture */}
+            {isUploading ? <h3>... uploading image</h3> : null}
+            {/* below line will render a preview of the image from cloudinary */}
+            {imageUrl ? (
+                <div>
+                    <img src={imageUrl} alt="img" width={200} />
+                </div>
+            ) : null}
         </div>
     );
 }
-
-export default EditarFotoUser;

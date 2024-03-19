@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import service from "../service/config.service";
+import FotoReseña from "./FotoReseña";
 
 function FormCrearReseña(props) {
     const navigate = useNavigate();
@@ -48,6 +49,7 @@ function FormCrearReseña(props) {
                         name="description"
                         onChange={handleDescription}
                     />
+                    <FotoReseña />
                     <button>Guarda tus cambios</button>
                 </form>
             </div>
