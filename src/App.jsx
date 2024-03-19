@@ -14,11 +14,12 @@ import Error500 from "./pages/error/Error500";
 import NavbarComp from "./components/NavbarComp";
 import Footer from "./components/Footer";
 import { AuthContext } from "./context/auth.context";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import AccessPage from "./pages/AccessPage";
 
 function App() {
     const { isLoggedIn } = useContext(AuthContext);
+    const [profile, setProfile] = useState(null);
 
     return (
         <div>

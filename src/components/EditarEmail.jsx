@@ -12,15 +12,14 @@ function EditarEmail(props) {
     const handleEmailSubmit = async (event) => {
         event.preventDefault();
         const uploadEmail = {
-            
             email
         };
-        console.log(uploadEmail)
+        console.log(uploadEmail);
 
         try {
             const response = await service.patch("/user/email", uploadEmail);
             console.log(response);
-            setProfile(response.data);
+            props.setProfile(response.data);
             props.handleToggleUpdateEmail(false);
         } catch (error) {
             navigate("/error500");

@@ -60,18 +60,21 @@ function FormEditarUser(props) {
             {isUpdateUsernameShowing === true ? (
                 <EditarUsername
                     profile={profile}
+                    setProfile={setProfile}
                     handleToggleUpdateUsername={handleToggleUpdateUsername}
                 />
             ) : null}
             {isUpdateEmailShowing === true ? (
                 <EditarEmail
                     profile={profile}
+                    setProfile={setProfile}
                     handleToggleUpdateEmail={handleToggleUpdateEmail}
                 />
             ) : null}
             {isUpdatePasswordShowing === true ? (
                 <EditarPassword
                     profile={profile}
+                    setProfile={setProfile}
                     handleToggleUpdatePassword={handleToggleUpdatePassword}
                 />
             ) : null}

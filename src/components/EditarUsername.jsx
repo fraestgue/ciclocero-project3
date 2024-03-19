@@ -21,7 +21,7 @@ function EditarUsername(props) {
                 uploadUsername
             );
             console.log(response);
-            setProfile(response.data);
+            props.setProfile(response.data);
             props.handleToggleUpdateUsername(false);
         } catch (error) {
             navigate("/error500");
