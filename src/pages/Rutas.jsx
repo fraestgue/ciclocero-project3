@@ -36,21 +36,20 @@ function Rutas() {
             <div className="card-container">
                 {rutas.map((eachRuta) => {
                     return (
-                        
                         <Link to={`/rutas/${eachRuta._id}`} key={eachRuta._id}>
-                        <div className="card">
-                            <h3>{eachRuta.name}</h3>
-                            <img
-                                src={eachRuta.image}
-                                alt="imagen ruta"
-                                width={"150px"}
-                            />
-                            <h4>Dificultad: {eachRuta.difficulty}</h4>
-                            <h4>Modalidad: {eachRuta.modalidad}</h4>
-                            <p>Provincia: {eachRuta.provincia}</p>
-                            <p>Km: {eachRuta.distanciaEnKm}</p>
-                        </div>
-                        // </Link>
+                            <div className="card">
+                                <h3>{eachRuta.name}</h3>
+                                <img
+                                    src={eachRuta.image}
+                                    alt="imagen ruta"
+                                    width={"150px"}
+                                />
+                                <h4>Dificultad: {eachRuta.difficulty}</h4>
+                                <h4>Modalidad: {eachRuta.modalidad}</h4>
+                                <p>Provincia: {eachRuta.provincia}</p>
+                                <p>Km: {eachRuta.distanciaEnKm}</p>
+                            </div>
+                        </Link>
                     );
                 })}
             </div>

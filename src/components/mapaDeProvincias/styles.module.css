@@ -1,6 +1,7 @@
 .mapContainer {
     width: 90%;
-    height: 90%;
+    max-width: 1200px;
+    min-height: 90%;
     background-color: #fbc344;
-    
+    overflow: hidden;
 }

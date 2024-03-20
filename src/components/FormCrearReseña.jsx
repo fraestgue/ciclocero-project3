@@ -4,10 +4,11 @@ import service from "../service/config.service";
 import FotoReseña from "./FotoReseña";
 
 function FormCrearReseña(props) {
-    const params = useParams()
+    const params = useParams();
     const navigate = useNavigate();
-    const [title, setTitle] = useState();
-    const [description, setDescription] = useState();
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
+    const [image, setImage] = useState();
     const [creador, setCreador] = useState();
 
     const handleTitle = (event) => setTitle(event.target.value);
@@ -20,7 +21,8 @@ function FormCrearReseña(props) {
             title,
             description,
             creador,
-            ruta: props.detallesRuta._id
+            ruta: props.detallesRuta._id,
+            image
         };
         console.log(props.detallesRuta);
 
@@ -39,9 +41,7 @@ function FormCrearReseña(props) {
         } catch (error) {
             navigate("/error500");
         }
-    }
-
-    
+    };
 
     return (
         <div>
@@ -50,12 +50,12 @@ function FormCrearReseña(props) {
                     <label>Titulo </label>
                     <input type="text" name="title" onChange={handleTitle} />
                     <label>Descripción </label>
-                    <input
+                    <textarea
                         type="text"
                         name="description"
                         onChange={handleDescription}
                     />
-                    <FotoReseña />
+                    <FotoReseña image={image} setImage={setImage} />
                     <button>Guarda tus cambios</button>
                 </form>
             </div>

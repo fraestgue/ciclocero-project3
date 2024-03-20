@@ -7,8 +7,6 @@ import FormCrearRuta from "../components/FormCrearRuta";
 function CrearRuta() {
     const navigate = useNavigate();
 
-    const position = [40.034906, -4.121625];
-
     const handleBack = () => navigate(-1);
 
     return (
@@ -18,7 +16,6 @@ function CrearRuta() {
             </button>
             <p>CrearRuta</p>
             <FormCrearRuta />
-            
         </div>
     );
 }

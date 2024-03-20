@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import service from "../service/config.service";
 import { useNavigate } from "react-router-dom";
 
-export default function FotoReseña() {
+export default function FotoReseña(props) {
     // add to component where you are creating an item
 
     // below state will hold the image URL from cloudinary. This will come from the backend.
-    const [imageUrl, setImageUrl] = useState(null);
+    // const [imageUrl, setImageUrl] = useState(null);
     const [isUploading, setIsUploading] = useState(false); // for a loading animation effect
 
     const navigate = useNavigate();
@@ -30,10 +30,12 @@ export default function FotoReseña() {
         try {
             const response = await service.post("/upload", uploadData);
             // !IMPORTANT: Adapt the request structure to the one in your proyect (services, .env, auth, etc...)
-
-            setImageUrl(response.data.imageUrl);
+            console.log(response.data);
+            // setImageUrl(response.data.imageUrl);
+            props.setImage(response.data.imageUrl);
             //                          |
             //     this is how the backend sends the image to the frontend => res.json({ imageUrl: req.file.path });
+            console.log(props.image);
 
             setIsUploading(false); // to stop the loading animation
         } catch (error) {
@@ -52,13 +54,13 @@ export default function FotoReseña() {
                 />
                 {/* below disabled prevents the user from attempting another upload while one is already happening */}
             </div>
-            ;
+
             {/* to render a loading message or spinner while uploading the picture */}
             {isUploading ? <h3>... uploading image</h3> : null}
             {/* below line will render a preview of the image from cloudinary */}
-            {imageUrl ? (
+            {props.image ? (
                 <div>
-                    <img src={imageUrl} alt="img" width={200} />
+                    <img src={props.image} alt="img" width={200} />
                 </div>
             ) : null}
         </div>

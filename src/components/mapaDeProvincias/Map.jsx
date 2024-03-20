@@ -39,7 +39,9 @@ function Map() {
                                         style={{
                                             hover: {
                                                 fill: "#FF331F"
-                                            }
+                                            },
+                                            pressed: { fill: "white" },
+                                            default: { fill: "white" }
                                         }}
                                     />
                                     //{" "}

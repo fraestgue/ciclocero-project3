@@ -8,8 +8,9 @@ import FormCrearReseña from "../components/FormCrearReseña";
 import BorrarReseña from "../components/BorrarReseña";
 import MarcarPuntosRuta from "../components/MarcarPuntosRuta";
 import MostrarRuta from "../components/MostrarRuta";
+import BorrarRuta from "../components/BorrarRuta";
 
-function DetallesRuta() {
+function DetallesRuta({ loggedUserId }) {
     const [detallesRuta, setDetallesRuta] = useState(null);
     const [center, setCenter] = useState([40.034906, -4.121625]);
     const [clickedPosition, setClickedPosition] = useState(null);
@@ -62,16 +63,13 @@ function DetallesRuta() {
                 alt={detallesRuta.name}
                 width={"300px"}
             />
-            <div>
-                {detallesRuta.comunidad} | {detallesRuta.provincia}
-            </div>
+            <div>{detallesRuta.provincia}</div>
             <div>
                 {detallesRuta.distanciaEnKm}km | {detallesRuta.desnivelEnM}m |{" "}
                 {detallesRuta.duracionEnHoras}h
             </div>
             <div>
                 {detallesRuta.difficulty} | {detallesRuta.modalidad} |{" "}
-                {detallesRuta.circular === true ? "Circular" : "No circular"}
             </div>
 
             <MapContainer center={center} zoom={5} scrollWheelZoom={true}>
@@ -93,6 +91,10 @@ function DetallesRuta() {
             </MapContainer>
 
             <div>
+                {detallesRuta.creador === loggedUserId ? <BorrarRuta /> : null}
+            </div>
+
+            <div>
                 <button onClick={handleToggleUpdateForm}>Deja tu review</button>
             </div>
             {isUpdateFormShowing === true ? (
@@ -111,13 +113,21 @@ function DetallesRuta() {
                           return (
                               <div key={eachReview._id} className="card-review">
                                   <h4>{eachReview.title}</h4>
+                                  <img
+                                      src={eachReview.image}
+                                      alt={eachReview.title}
+                                      width={"200px"}
+                                  />
                                   <p>{eachReview.description}</p>
                                   <p>{eachReview.creador.username}</p>
-                                  <BorrarReseña
-                                      review={eachReview}
-                                      setReview={setReviewArr}
-                                      reviewArr={reviewArr}
-                                  />
+
+                                  {eachReview.creador._id === loggedUserId ? (
+                                      <BorrarReseña
+                                          review={eachReview}
+                                          setReview={setReviewArr}
+                                          reviewArr={reviewArr}
+                                      />
+                                  ) : null}
                               </div>
                           );
                       })}

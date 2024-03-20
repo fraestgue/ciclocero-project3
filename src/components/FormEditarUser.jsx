@@ -16,8 +16,6 @@ function FormEditarUser(props) {
     const [isUpdatePasswordShowing, setIsUpdatePasswordShowing] =
         useState(false);
 
-    const navigate = useNavigate();
-
     const handleToggleUpdateImg = () =>
         setIsUpdateImgShowing(!isUpdateImgShowing);
 

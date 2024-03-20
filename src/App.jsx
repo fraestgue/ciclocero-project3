@@ -18,8 +18,8 @@ import { useContext, useState } from "react";
 import AccessPage from "./pages/AccessPage";
 
 function App() {
-    const { isLoggedIn } = useContext(AuthContext);
-    const [profile, setProfile] = useState(null);
+    const { isLoggedIn, loggedUserId } = useContext(AuthContext);
+    console.log(loggedUserId);
 
     return (
         <div>
@@ -39,7 +39,11 @@ function App() {
                     />
                     <Route
                         path={"/rutas/:rutaId"}
-                        element={isLoggedIn === true && <DetallesRuta />}
+                        element={
+                            isLoggedIn === true && (
+                                <DetallesRuta loggedUserId={loggedUserId} />
+                            )
+                        }
                     />
                     <Route
                         path={"/rutas"}
@@ -55,7 +59,11 @@ function App() {
                     />
                     <Route
                         path={"/user-rutas"}
-                        element={isLoggedIn === true && <UserRutas />}
+                        element={
+                            isLoggedIn === true && (
+                                <UserRutas loggedUserId={loggedUserId} />
+                            )
+                        }
                     />
                     <Route
                         path={"/user-rutas-fav"}
