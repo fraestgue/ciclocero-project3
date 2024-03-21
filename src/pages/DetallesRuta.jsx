@@ -2,11 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import service from "../service/config.service";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import ClickMarker from "../components/ClickMarker";
 import btnAtras from "../assets/btn-atras.png";
 import FormCrearReseña from "../components/FormCrearReseña";
 import BorrarReseña from "../components/BorrarReseña";
-import MarcarPuntosRuta from "../components/MarcarPuntosRuta";
 import MostrarRuta from "../components/MostrarRuta";
 import BorrarRuta from "../components/BorrarRuta";
 import { Spinner } from "react-bootstrap";
@@ -64,7 +62,7 @@ function DetallesRuta({ loggedUserId }) {
                 alt={detallesRuta.name}
                 width={"300px"}
             />
-            <div>{detallesRuta.provincia}</div>
+            <div>{detallesRuta.provincia[0].toUpperCase()+detallesRuta.provincia.slice(1)}</div>
             <div>
                 {detallesRuta.distanciaEnKm}km | {detallesRuta.desnivelEnM}m |{" "}
                 {detallesRuta.duracionEnHoras}h
@@ -107,18 +105,20 @@ function DetallesRuta({ loggedUserId }) {
             ) : null}
             <div>
                 <h3>Reseñas de la ruta:</h3>
-                {reviewArr === null
+                {reviewArr.length === 0
                     ? "Esta ruta aún no tiene reseñas"
                     : reviewArr.map((eachReview) => {
                           console.log(eachReview);
                           return (
                               <div key={eachReview._id} className="card-review">
                                   <h4>{eachReview.title}</h4>
+                                  <div>
                                   <img
                                       src={eachReview.image}
                                       alt={eachReview.title}
                                       width={"200px"}
                                   />
+                                  </div>
                                   <p>{eachReview.description}</p>
                                   <p>{eachReview.creador.username}</p>
 

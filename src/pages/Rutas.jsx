@@ -47,7 +47,7 @@ function Rutas() {
                                 />
                                 <h4>Dificultad: {eachRuta.difficulty}</h4>
                                 <h4>Modalidad: {eachRuta.modalidad}</h4>
-                                <p>Provincia: {eachRuta.provincia}</p>
+                                <p>Provincia: {eachRuta.provincia[0].toUpperCase()+eachRuta.provincia.slice(1)}</p>
                                 <p>Km: {eachRuta.distanciaEnKm}</p>
                             </div>
                         </Link>

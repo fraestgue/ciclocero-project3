@@ -19,7 +19,7 @@ function RutasProvincia() {
     const getRutasProvincia = async () => {
         try {
             const response = await service.get(
-                `/rutas?provincia=${params.provincia}`
+                `/rutas/query?queryValue=${params.provincia}`
             );
             console.log(response.data);
             setRutasProvincia(response.data);
@@ -42,7 +42,7 @@ function RutasProvincia() {
             </button>
 
             <div className="card-container">
-                {rutasProvincia === null ? (
+                {rutasProvincia.length === 0 ? (
                     <h3>Aun no hay rutas en esta provincia</h3>
                 ) : (
                     rutasProvincia.map((eachRuta) => {
@@ -60,7 +60,7 @@ function RutasProvincia() {
                                     />
                                     <h4>Dificultad: {eachRuta.difficulty}</h4>
                                     <h4>Modalidad: {eachRuta.modalidad}</h4>
-                                    <p>Provincia: {eachRuta.provincia}</p>
+                                    <p>Provincia: {eachRuta.provincia[0].toUpperCase()+eachRuta.provincia.slice(1)}</p>
                                     <p>Km: {eachRuta.distanciaEnKm}</p>
                                 </div>
                             </Link>

@@ -16,7 +16,7 @@ function UserRutas({ loggedUserId }) {
     const getRutas = async () => {
         try {
             const response = await service.get(
-                `/rutas?creador=${loggedUserId}`
+                `/rutas/user`
             );
             console.log(response.data);
             setTusRutas(response.data);
@@ -54,7 +54,7 @@ function UserRutas({ loggedUserId }) {
                                     />
                                     <h4>Dificultad: {eachRuta.difficulty}</h4>
                                     <h4>Modalidad: {eachRuta.modalidad}</h4>
-                                    <p>Provincia: {eachRuta.provincia}</p>
+                                    <p>Provincia: {eachRuta.provincia[0].toUpperCase()+eachRuta.provincia.slice(1)}</p>
                                     <p>Km: {eachRuta.distanciaEnKm}</p>
                                 </div>
                             </Link>

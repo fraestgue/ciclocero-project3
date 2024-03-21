@@ -14,7 +14,6 @@ function FotoRuta(props) {
     // below function should be the only function invoked when the file type input changes => onChange={handleFileUpload}
     const handleFileUpload = async (event) => {
         console.log("patata")
-        return
         // console.log("The file to be uploaded is: ", e.target.files[0]);
 
         if (!event.target.files[0]) {

@@ -59,7 +59,7 @@ function FormCrearRuta() {
 
     return (
         <div>
-            <form onSubmit={handleSubmitRuta}>
+            <form onSubmit={handleSubmitRuta} className="form">
                 <label> Nombre de la ruta: </label>
                 <input
                     required={true}
@@ -135,7 +135,7 @@ function FormCrearRuta() {
                     {provinciasJson.provincias.map((eachProvincia) => {
                         return (
                             <option key={eachProvincia} value={eachProvincia}>
-                                {eachProvincia}
+                                {eachProvincia[0].toUpperCase()+eachProvincia.slice(1)}
                             </option>
                         );
                     })}
