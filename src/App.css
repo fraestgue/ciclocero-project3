@@ -39,6 +39,8 @@
     color: #045474;
     justify-content: space-between;
     padding: 20px 70px;
+    width: 100%;
+    margin-top: 50px;
 }
 
 .footer-container {
