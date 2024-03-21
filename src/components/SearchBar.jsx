@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import service from "../service/config.service";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import Spinner from "./Spinner"
+import Spinner from "./Spinner";
 
 function SearchBar() {
     const [searchQuery, setSearchQuery] = useState("");
@@ -15,12 +15,14 @@ function SearchBar() {
         if (searchQuery === "") {
             setSearchRuta(null);
             setSpinner(false);
-            return
+            return;
         }
 
         const delay = setTimeout(async () => {
             try {
-                const response = await service.get(`/rutas?queryValue=${searchQuery}`);
+                const response = await service.get(
+                    `/rutas/query?queryValue=${searchQuery}`
+                );
                 console.log(response.data);
                 setSearchRuta(response.data);
                 setSpinner(false);
@@ -48,7 +50,7 @@ function SearchBar() {
                     className="barra"
                     autoFocus
                     type="text"
-                    autoComplete="on"
+                    autoComplete="off"
                     placeholder="busca rutas"
                     value={searchQuery}
                     onChange={handleSearch}
@@ -69,7 +71,9 @@ function SearchBar() {
                                         alt="ruta"
                                         width={"120px"}
                                     />
-                                    <h3>{eachRuta.name}</h3>
+                                    <h3 style={{ color: "#fbc344" }}>
+                                        {eachRuta.name}
+                                    </h3>
                                 </Link>
                             </div>
                         );

@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { Component, useEffect, useState } from "react";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
 import { useNavigate } from "react-router-dom";
 import service from "../service/config.service";
-import { Carousel } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import Spinner from "./Spinner";
+import { Link } from "react-router-dom";
 
-function Carrousel() {
+function CarruselCom() {
     const [mainRutas, setMainRutas] = useState(null);
     const navigate = useNavigate();
 
@@ -47,35 +48,28 @@ function Carrousel() {
 
     return (
         <div>
-            {rutasCarruselArr === null ? null : (
-                <Carousel>
+            <Carousel>
+                <div>
                     {rutasCarruselArr.map((eachRuta) => {
                         return (
-                            <Carousel.Item interval={2000} key={eachRuta._id}>
-                                <Link to={`/rutas/${eachRuta._id}`}>
-                                    <img
-                                        src={eachRuta.image}
-                                        alt="ruta"
-                                        width={"400px"}
-                                        height={"250px"}
-                                    />
-                                </Link>
-                                <Carousel.Caption>
-                                    <p
-                                        style={{
-                                            textShadow: "1px 1px 5px black"
-                                        }}
-                                    >
-                                        {eachRuta.name}
-                                    </p>
-                                </Carousel.Caption>
-                            </Carousel.Item>
+                            <Link
+                                to={`/rutas/${eachRuta._id}`}
+                                key={eachRuta._id}
+                            >
+                                <img
+                                    src={eachRuta.image}
+                                    alt="ruta"
+                                    width={"400px"}
+                                    height={"250px"}
+                                />
+                                <p className="legend">{eachRuta.name}</p>
+                            </Link>
                         );
                     })}
-                </Carousel>
-            )}
+                </div>
+            </Carousel>
         </div>
     );
 }
 
-export default Carrousel;
+export default CarruselCom;

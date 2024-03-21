@@ -6,7 +6,7 @@
 
 .navbar {
     display: flex;
-    position: fixed;
+    /* position: fixed; */
     background-color: #045474;
     width: 100%;
     color: #fbc344;
@@ -14,8 +14,13 @@
     flex-direction: row;
     justify-content: space-between;
     margin-top: 0;
+    margin-bottom: 0;
     top: 0;
     left: 0;
+}
+
+.pagina {
+    padding: 20px;
 }
 
 .menu {
@@ -57,10 +62,6 @@
     border-radius: 35px;
     background-color: #045474;
     margin-right: 25px;
-}
-
-.pagina {
-    padding-top: 165px;
 }
 
 .leaflet-container {
@@ -164,14 +165,18 @@
     flex-direction: row;
 }
 
-.mapas-leaflet {
+.mapas-leaflet1 {
     position: relative;
     margin-top: 20px;
-    z-index: 0 !important;
+    z-index: 0;
+}
+
+.crear-ruta {
+    z-index: -1 !important;
 }
 
 .bm-menu-wrap {
-    position: fixed;
+    /* position: fixed; */
     height: 100%;
 }
 

@@ -10,11 +10,11 @@ function CrearRuta() {
     const handleBack = () => navigate(-1);
 
     return (
-        <div>
+        <div className="crear-ruta">
             <button onClick={handleBack} className="btn-atras">
                 <img src={btnAtras} alt="atras" width="25px" />
             </button>
-            <p>CrearRuta</p>
+            <p>Crea tu Ruta</p>
             <FormCrearRuta />
         </div>
     );
