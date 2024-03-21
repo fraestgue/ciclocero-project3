@@ -13,7 +13,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.app {
+  background-color: antiquewhite;
+}
+
+
 body {
-  margin: 0px;
+  margin: 0;
 }
 

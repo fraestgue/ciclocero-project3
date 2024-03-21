@@ -20,10 +20,10 @@ function App() {
     const { isLoggedIn, loggedUserId } = useContext(AuthContext);
 
     return (
-        <div>
+        <div className="app">
             <NavbarComp />
 
-            <div className="pagina">
+            {/* <div className="pagina"> */}
                 <Routes>
                     <Route
                         path={"/"}
@@ -69,10 +69,10 @@ function App() {
                     <Route path={"/error500"} element={<Error500 />} />
                     <Route path={"*"} element={<Error404 />} />
                 </Routes>
-            </div>
-            <div className="footer-container">
+            {/* </div>
+            <div className="footer-container"> */}
                 <Footer />
-            </div>
+            {/* </div> */}
         </div>
     );
 }

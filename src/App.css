@@ -6,7 +6,6 @@
 
 .navbar {
     display: flex;
-    /* position: fixed; */
     background-color: #045474;
     width: 100%;
     color: #fbc344;
@@ -21,7 +20,7 @@
 
 .pagina {
     padding: 20px;
-    min-height: 68vh;
+    min-height: 50vh;
     background-color: antiquewhite;
 }
 
@@ -37,16 +36,20 @@
     background-color: #fbc344;
     color: #045474;
     justify-content: space-between;
-    padding: 20px 70px;
+    padding: 20px 10px;
     width: 100%;
     margin-top: 50px;
 }
 
-.footer-container {
+body {
+    margin: 0px;
+  }
+
+/* .footer-container {
     bottom: 0;
     position: relative;
     width: 100%;
-}
+} */
 
 .homepage {
     padding-top: -50px;
