@@ -33,7 +33,6 @@
 
 .footer {
     display: flex;
-    position: fixed;
     bottom: 0;
     background-color: #fbc344;
     color: #045474;
