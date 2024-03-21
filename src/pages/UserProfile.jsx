@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import btnAtras from "../assets/btn-atras.png";
 
 import FormEditarUser from "../components/FormEditarUser";
+import { Spinner } from "react-bootstrap";
 
 function UserProfile() {
     const [profile, setProfile] = useState(null);
@@ -32,7 +33,7 @@ function UserProfile() {
     const handleEditar = () => setEditarUserShowing(!isEditarUserShowing);
 
     if (profile === null) {
-        return <h3>...buscando</h3>;
+        return <Spinner />;
     }
 
     const handleBack = () => navigate(-1);
@@ -49,7 +50,7 @@ function UserProfile() {
                 <h3>Email: {profile.email}</h3>
 
                 <h3>
-                    <button onClick={handleEditar}>Edita tu perfil:</button>
+                    <button onClick={handleEditar}>Edita tu perfil</button>
                 </h3>
                 {isEditarUserShowing === true ? (
                     <FormEditarUser
@@ -63,9 +64,9 @@ function UserProfile() {
             <Link to={"/user-rutas"}>
                 <button>Tus rutas</button>
             </Link>
-            <Link to={"/user-rutas-fav"}>
+            {/* <Link to={"/user-rutas-fav"}>
                 <button>Tus rutas favoritas</button>
-            </Link>
+            </Link> */}
         </div>
     );
 }

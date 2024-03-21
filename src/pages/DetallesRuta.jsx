@@ -9,6 +9,7 @@ import BorrarReseña from "../components/BorrarReseña";
 import MarcarPuntosRuta from "../components/MarcarPuntosRuta";
 import MostrarRuta from "../components/MostrarRuta";
 import BorrarRuta from "../components/BorrarRuta";
+import { Spinner } from "react-bootstrap";
 
 function DetallesRuta({ loggedUserId }) {
     const [detallesRuta, setDetallesRuta] = useState(null);
@@ -43,7 +44,7 @@ function DetallesRuta({ loggedUserId }) {
     };
 
     if (detallesRuta === null) {
-        return <h3>...buscando</h3>;
+        return <Spinner />;
     }
 
     const handleBack = () => navigate(-1);

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import btnAtras from "../assets/btn-atras.png";
 import { Link, useNavigate } from "react-router-dom";
 import service from "../service/config.service";
+import { Spinner } from "react-bootstrap";
 
 function UserRutas({ loggedUserId }) {
     const [tusRutas, setTusRutas] = useState(null);
@@ -24,6 +25,10 @@ function UserRutas({ loggedUserId }) {
             navigate("/error500");
         }
     };
+
+    if (tusRutas === null) {
+        return <Spinner />;
+    }
 
     const handleBack = () => navigate(-1);
     return (

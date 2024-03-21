@@ -8,7 +8,6 @@ import Rutas from "./pages/Rutas";
 import RutasProvincia from "./pages/RutasProvincia";
 import UserProfile from "./pages/UserProfile";
 import UserRutas from "./pages/UserRutas";
-import UserRutasFav from "./pages/UserRutasFav";
 import Error404 from "./pages/error/Error404";
 import Error500 from "./pages/error/Error500";
 import NavbarComp from "./components/NavbarComp";
@@ -24,8 +23,6 @@ function App() {
     return (
         <div>
             <NavbarComp />
-
-
 
             <div className="pagina">
                 <Routes>
@@ -67,10 +64,6 @@ function App() {
                             )
                         }
                     />
-                    <Route
-                        path={"/user-rutas-fav"}
-                        element={isLoggedIn === true && <UserRutasFav />}
-                    />
 
                     <Route path={"/about"} element={<About />} />
 
@@ -79,8 +72,7 @@ function App() {
                 </Routes>
             </div>
             <div className="footer-container">
-            <Footer />
-
+                <Footer />
             </div>
         </div>
     );
