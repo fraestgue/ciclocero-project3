@@ -24,11 +24,10 @@ function FormCrearReseña(props) {
             ruta: props.detallesRuta._id,
             image
         };
-        console.log(props.detallesRuta);
 
         try {
             const response = await service.post("/reviews", nuevaReseña);
-            console.log(response);
+
             const responseReseñas = await service.get(
                 `/reviews/rutas/${params.rutaId}`
             );

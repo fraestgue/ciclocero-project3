@@ -18,7 +18,6 @@ import AccessPage from "./pages/AccessPage";
 
 function App() {
     const { isLoggedIn, loggedUserId } = useContext(AuthContext);
-    console.log(loggedUserId);
 
     return (
         <div>

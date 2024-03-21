@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import btnAtras from "../assets/btn-atras.png";
 
 import FormEditarUser from "../components/FormEditarUser";
-import { Spinner } from "react-bootstrap";
+import Spinner from "../components/Spinner";
 
 function UserProfile() {
     const [profile, setProfile] = useState(null);
@@ -22,7 +22,7 @@ function UserProfile() {
     const getProfile = async () => {
         try {
             const response = await service.get("/user");
-            console.log(response.data);
+
             setProfile(response.data);
             setProfileFile(response.data.image);
         } catch (error) {

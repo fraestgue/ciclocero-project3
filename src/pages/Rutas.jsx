@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import service from "../service/config.service";
 import btnAtras from "../assets/btn-atras.png";
-import { Spinner } from "react-bootstrap";
+import Spinner from "../components/Spinner";
 
 function Rutas() {
     const [rutas, setRutas] = useState(null);
@@ -16,7 +16,7 @@ function Rutas() {
     const getRutas = async () => {
         try {
             const response = await service.get("/rutas");
-            console.log(response.data);
+
             setRutas(response.data);
         } catch (error) {
             navigate("/error500");
@@ -47,7 +47,11 @@ function Rutas() {
                                 />
                                 <h4>Dificultad: {eachRuta.difficulty}</h4>
                                 <h4>Modalidad: {eachRuta.modalidad}</h4>
-                                <p>Provincia: {eachRuta.provincia[0].toUpperCase()+eachRuta.provincia.slice(1)}</p>
+                                <p>
+                                    Provincia:{" "}
+                                    {eachRuta.provincia[0].toUpperCase() +
+                                        eachRuta.provincia.slice(1)}
+                                </p>
                                 <p>Km: {eachRuta.distanciaEnKm}</p>
                             </div>
                         </Link>

@@ -20,12 +20,11 @@ function EditarPassword(props) {
                 "/user/password",
                 uploadPassword
             );
-            console.log(response);
+
             props.setProfile(response.data);
             props.handleToggleUpdatePassword(false);
             setPassword("");
         } catch (error) {
-            console.log(error);
             navigate("/error500");
         }
     };

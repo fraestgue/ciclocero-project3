@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import btnAtras from "../assets/btn-atras.png";
 import { Link, useNavigate } from "react-router-dom";
 import service from "../service/config.service";
-import { Spinner } from "react-bootstrap";
+import Spinner from "../components/Spinner";
 
 function UserRutas({ loggedUserId }) {
     const [tusRutas, setTusRutas] = useState(null);
@@ -15,13 +15,10 @@ function UserRutas({ loggedUserId }) {
 
     const getRutas = async () => {
         try {
-            const response = await service.get(
-                `/rutas/user`
-            );
-            console.log(response.data);
+            const response = await service.get(`/rutas/user`);
+
             setTusRutas(response.data);
         } catch (error) {
-            console.log(error);
             navigate("/error500");
         }
     };
@@ -54,7 +51,11 @@ function UserRutas({ loggedUserId }) {
                                     />
                                     <h4>Dificultad: {eachRuta.difficulty}</h4>
                                     <h4>Modalidad: {eachRuta.modalidad}</h4>
-                                    <p>Provincia: {eachRuta.provincia[0].toUpperCase()+eachRuta.provincia.slice(1)}</p>
+                                    <p>
+                                        Provincia:{" "}
+                                        {eachRuta.provincia[0].toUpperCase() +
+                                            eachRuta.provincia.slice(1)}
+                                    </p>
                                     <p>Km: {eachRuta.distanciaEnKm}</p>
                                 </div>
                             </Link>

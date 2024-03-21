@@ -32,9 +32,6 @@ function Map() {
                                     key={geo.rsmKey}
                                 >
                                     <Geography
-                                        onClick={() =>
-                                            console.log(provinciaName)
-                                        }
                                         geography={geo}
                                         style={{
                                             hover: {

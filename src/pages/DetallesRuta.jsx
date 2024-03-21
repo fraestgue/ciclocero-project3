@@ -7,7 +7,7 @@ import FormCrearReseña from "../components/FormCrearReseña";
 import BorrarReseña from "../components/BorrarReseña";
 import MostrarRuta from "../components/MostrarRuta";
 import BorrarRuta from "../components/BorrarRuta";
-import { Spinner } from "react-bootstrap";
+import Spinner from "../components/Spinner";
 
 function DetallesRuta({ loggedUserId }) {
     const [detallesRuta, setDetallesRuta] = useState(null);
@@ -19,7 +19,6 @@ function DetallesRuta({ loggedUserId }) {
 
     const navigate = useNavigate();
     const params = useParams();
-    //console.log(params)
 
     useEffect(() => {
         getDetails();
@@ -31,11 +30,9 @@ function DetallesRuta({ loggedUserId }) {
             const responseReseñas = await service.get(
                 `/reviews/rutas/${params.rutaId}`
             );
-            console.log(responseRutas.data);
-            console.log(responseReseñas.data);
+
             setDetallesRuta(responseRutas.data);
             setReviewArr(responseReseñas.data);
-            // setCenter(response.data.coordinates)
         } catch (error) {
             navigate("/error500");
         }
@@ -62,7 +59,10 @@ function DetallesRuta({ loggedUserId }) {
                 alt={detallesRuta.name}
                 width={"300px"}
             />
-            <div>{detallesRuta.provincia[0].toUpperCase()+detallesRuta.provincia.slice(1)}</div>
+            <div>
+                {detallesRuta.provincia[0].toUpperCase() +
+                    detallesRuta.provincia.slice(1)}
+            </div>
             <div>
                 {detallesRuta.distanciaEnKm}km | {detallesRuta.desnivelEnM}m |{" "}
                 {detallesRuta.duracionEnHoras}h
@@ -108,16 +108,15 @@ function DetallesRuta({ loggedUserId }) {
                 {reviewArr.length === 0
                     ? "Esta ruta aún no tiene reseñas"
                     : reviewArr.map((eachReview) => {
-                          console.log(eachReview);
                           return (
                               <div key={eachReview._id} className="card-review">
                                   <h4>{eachReview.title}</h4>
                                   <div>
-                                  <img
-                                      src={eachReview.image}
-                                      alt={eachReview.title}
-                                      width={"200px"}
-                                  />
+                                      <img
+                                          src={eachReview.image}
+                                          alt={eachReview.title}
+                                          width={"200px"}
+                                      />
                                   </div>
                                   <p>{eachReview.description}</p>
                                   <p>{eachReview.creador.username}</p>

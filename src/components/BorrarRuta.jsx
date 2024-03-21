@@ -11,7 +11,6 @@ function BorrarRuta() {
             await service.delete(`/rutas/${params.rutaId}`);
             navigate("/rutas");
         } catch (error) {
-            console.log(error);
             navigate("/error500");
         }
     };

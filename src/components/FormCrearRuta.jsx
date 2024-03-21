@@ -6,7 +6,6 @@ import provinciasJson from "../assets/data/comunidades.json";
 import FotoRuta from "./FotoRuta";
 
 function FormCrearRuta() {
-    // console.log(provinciasJson)
     const navigate = useNavigate();
     const [name, setName] = useState("");
     const [difficulty, setDifficulty] = useState("");
@@ -41,7 +40,7 @@ function FormCrearRuta() {
             duracionEnHoras,
             modalidad,
             provincia,
-            // creador, // esto no viene del front
+
             image,
             coordinatesStart,
             coordinatesEnd
@@ -49,10 +48,9 @@ function FormCrearRuta() {
 
         try {
             const response = await service.post("/rutas", nuevaRuta);
-            console.log(response);
+
             navigate("/rutas");
         } catch (error) {
-            console.log(error);
             navigate("/error500");
         }
     };
@@ -85,7 +83,7 @@ function FormCrearRuta() {
 
                 <label> Distancia: </label>
                 <input
-                required={true}
+                    required={true}
                     type="number"
                     name="distancia"
                     onChange={handleDistanciaEnKm}
@@ -94,7 +92,7 @@ function FormCrearRuta() {
 
                 <label> Desnivel: </label>
                 <input
-                required={true}
+                    required={true}
                     type="number"
                     name="desnivel"
                     onChange={handleDesnivelEnM}
@@ -103,7 +101,7 @@ function FormCrearRuta() {
 
                 <label> Duración: </label>
                 <input
-                required={true}
+                    required={true}
                     type="number"
                     name="duracion"
                     onChange={handleDuracionEnHoras}
@@ -112,7 +110,7 @@ function FormCrearRuta() {
 
                 <label> Modalidad de la ruta: </label>
                 <select
-                required={true}
+                    required={true}
                     name="modalidad"
                     onChange={handleModalidad}
                     value={modalidad}
@@ -126,7 +124,7 @@ function FormCrearRuta() {
 
                 <label> Provincia: </label>
                 <select
-                required={true}
+                    required={true}
                     name="provincia"
                     onChange={handleProvincia}
                     value={provincia}
@@ -135,7 +133,8 @@ function FormCrearRuta() {
                     {provinciasJson.provincias.map((eachProvincia) => {
                         return (
                             <option key={eachProvincia} value={eachProvincia}>
-                                {eachProvincia[0].toUpperCase()+eachProvincia.slice(1)}
+                                {eachProvincia[0].toUpperCase() +
+                                    eachProvincia.slice(1)}
                             </option>
                         );
                     })}

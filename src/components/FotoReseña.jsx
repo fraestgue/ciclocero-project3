@@ -1,43 +1,29 @@
 import React, { useState } from "react";
 import service from "../service/config.service";
 import { useNavigate } from "react-router-dom";
+import Spinner from "./Spinner";
 
 export default function FotoReseña(props) {
-    // add to component where you are creating an item
-
-    // below state will hold the image URL from cloudinary. This will come from the backend.
-    // const [imageUrl, setImageUrl] = useState(null);
-    const [isUploading, setIsUploading] = useState(false); // for a loading animation effect
+    const [isUploading, setIsUploading] = useState(false);
 
     const navigate = useNavigate();
 
-    // below function should be the only function invoked when the file type input changes => onChange={handleFileUpload}
     const handleFileUpload = async (event) => {
-        // console.log("The file to be uploaded is: ", e.target.files[0]);
-
         if (!event.target.files[0]) {
-            // to prevent accidentally clicking the choose file button and not selecting a file
             return;
         }
 
-        setIsUploading(true); // to start the loading animation
+        setIsUploading(true);
 
-        const uploadData = new FormData(); // images and other files need to be sent to the backend in a FormData
+        const uploadData = new FormData();
         uploadData.append("image", event.target.files[0]);
-        //                   |
-        //     this name needs to match the name used in the middleware in the backend => uploader.single("image")
 
         try {
             const response = await service.post("/upload", uploadData);
-            // !IMPORTANT: Adapt the request structure to the one in your proyect (services, .env, auth, etc...)
-            console.log(response.data);
-            // setImageUrl(response.data.imageUrl);
-            props.setImage(response.data.imageUrl);
-            //                          |
-            //     this is how the backend sends the image to the frontend => res.json({ imageUrl: req.file.path });
-            console.log(props.image);
 
-            setIsUploading(false); // to stop the loading animation
+            props.setImage(response.data.imageUrl);
+
+            setIsUploading(false);
         } catch (error) {
             navigate("/error");
         }
@@ -52,11 +38,9 @@ export default function FotoReseña(props) {
                     onChange={handleFileUpload}
                     disabled={isUploading}
                 />
-                {/* below disabled prevents the user from attempting another upload while one is already happening */}
             </div>
 
-            {/* to render a loading message or spinner while uploading the picture */}
-            {isUploading ? <h3>... uploading image</h3> : null}
+            {isUploading ? <Spinner /> : null}
             {/* below line will render a preview of the image from cloudinary */}
             {props.image ? (
                 <div>

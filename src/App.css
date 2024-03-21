@@ -191,6 +191,11 @@
     background-color: beige;
 }
 
+.enlaces-about {
+    display: flex;
+    flex-direction: row;
+}
+
 /* .menu-sidebar{
     z-index: 999 !important; 
 } */

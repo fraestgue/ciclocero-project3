@@ -23,7 +23,7 @@ function SearchBar() {
                 const response = await service.get(
                     `/rutas/query?queryValue=${searchQuery}`
                 );
-                console.log(response.data);
+
                 setSearchRuta(response.data);
                 setSpinner(false);
             } catch (error) {

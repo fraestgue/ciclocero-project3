@@ -14,11 +14,10 @@ function EditarEmail(props) {
         const uploadEmail = {
             email
         };
-        console.log(uploadEmail);
 
         try {
             const response = await service.patch("/user/email", uploadEmail);
-            console.log(response);
+
             props.setProfile(response.data);
             props.handleToggleUpdateEmail(false);
         } catch (error) {

@@ -3,14 +3,12 @@ import { useNavigate, useParams } from "react-router-dom";
 import service from "../service/config.service";
 import btnAtras from "../assets/btn-atras.png";
 import { Link } from "react-router-dom";
-import { Spinner } from "react-bootstrap";
+import Spinner from "../components/Spinner";
 
 function RutasProvincia() {
     const [rutasProvincia, setRutasProvincia] = useState(null);
     const params = useParams();
     const navigate = useNavigate();
-
-    console.log(params);
 
     useEffect(() => {
         getRutasProvincia();
@@ -21,11 +19,10 @@ function RutasProvincia() {
             const response = await service.get(
                 `/rutas/query?queryValue=${params.provincia}`
             );
-            console.log(response.data);
+
             setRutasProvincia(response.data);
         } catch (error) {
             navigate("/error500");
-            console.log(error);
         }
     };
 
@@ -60,7 +57,11 @@ function RutasProvincia() {
                                     />
                                     <h4>Dificultad: {eachRuta.difficulty}</h4>
                                     <h4>Modalidad: {eachRuta.modalidad}</h4>
-                                    <p>Provincia: {eachRuta.provincia[0].toUpperCase()+eachRuta.provincia.slice(1)}</p>
+                                    <p>
+                                        Provincia:{" "}
+                                        {eachRuta.provincia[0].toUpperCase() +
+                                            eachRuta.provincia.slice(1)}
+                                    </p>
                                     <p>Km: {eachRuta.distanciaEnKm}</p>
                                 </div>
                             </Link>

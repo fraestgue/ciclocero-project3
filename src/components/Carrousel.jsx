@@ -25,11 +25,9 @@ function Carrousel() {
     const getRutas = async () => {
         try {
             const response = await service.get("/rutas");
-            console.log(response);
             const shuffleRutasArray = shuffleArray(response.data);
             setMainRutas(shuffleRutasArray);
         } catch (error) {
-            console.log(error);
             navigate("/error500");
         }
     };
@@ -38,8 +36,6 @@ function Carrousel() {
     if (mainRutas !== null) {
         rutasCarruselArr = mainRutas.slice(0, 5);
     }
-
-    console.log(rutasCarruselArr);
 
     if (mainRutas === null) {
         return <Spinner />;
