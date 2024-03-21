@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import service from "../service/config.service";
 import btnAtras from "../assets/btn-atras.png";
+import { Spinner } from "react-bootstrap";
 
 function Rutas() {
     const [rutas, setRutas] = useState(null);
@@ -23,7 +24,7 @@ function Rutas() {
     };
 
     if (rutas === null) {
-        return <h3>...buscando</h3>;
+        return <Spinner />;
     }
 
     const handleBack = () => navigate(-1);

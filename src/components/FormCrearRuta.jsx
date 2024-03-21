@@ -85,6 +85,7 @@ function FormCrearRuta() {
 
                 <label> Distancia: </label>
                 <input
+                required={true}
                     type="number"
                     name="distancia"
                     onChange={handleDistanciaEnKm}
@@ -93,6 +94,7 @@ function FormCrearRuta() {
 
                 <label> Desnivel: </label>
                 <input
+                required={true}
                     type="number"
                     name="desnivel"
                     onChange={handleDesnivelEnM}
@@ -101,6 +103,7 @@ function FormCrearRuta() {
 
                 <label> Duración: </label>
                 <input
+                required={true}
                     type="number"
                     name="duracion"
                     onChange={handleDuracionEnHoras}
@@ -109,6 +112,7 @@ function FormCrearRuta() {
 
                 <label> Modalidad de la ruta: </label>
                 <select
+                required={true}
                     name="modalidad"
                     onChange={handleModalidad}
                     value={modalidad}
@@ -122,6 +126,7 @@ function FormCrearRuta() {
 
                 <label> Provincia: </label>
                 <select
+                required={true}
                     name="provincia"
                     onChange={handleProvincia}
                     value={provincia}

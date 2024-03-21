@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import service from "../service/config.service";
 import btnAtras from "../assets/btn-atras.png";
 import { Link } from "react-router-dom";
+import { Spinner } from "react-bootstrap";
 
 function RutasProvincia() {
     const [rutasProvincia, setRutasProvincia] = useState(null);
@@ -28,6 +29,10 @@ function RutasProvincia() {
         }
     };
 
+    if (rutasProvincia === null) {
+        return <Spinner />;
+    }
+
     const handleBack = () => navigate(-1);
 
     return (
@@ -36,8 +41,6 @@ function RutasProvincia() {
                 <img src={btnAtras} alt="atras" width="25px" />
             </button>
 
-            <p>RutasProvincia</p>
-            {/* Esto sería para cuando vaya bien y muestre las rutas de cada provincia */}
             <div className="card-container">
                 {rutasProvincia === null ? (
                     <h3>Aun no hay rutas en esta provincia</h3>

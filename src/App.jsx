@@ -25,6 +25,8 @@ function App() {
         <div>
             <NavbarComp />
 
+
+
             <div className="pagina">
                 <Routes>
                     <Route
@@ -76,7 +78,10 @@ function App() {
                     <Route path={"*"} element={<Error404 />} />
                 </Routes>
             </div>
+            <div className="footer-container">
             <Footer />
+
+            </div>
         </div>
     );
 }

@@ -8,8 +8,8 @@ function CrearMapaRutaLeaflet(props) {
     const [clickedPositionStart, setClickedPositionStart] = useState(null)
     const [clickedPositionEnd, setClickedPositionEnd] = useState(null)
     return (
-        <div>
-            <MapContainer center={center} zoom={5} scrollWheelZoom={true}>
+        <div className="mapas-leaflet">
+            <MapContainer className="mapas-leaflet1" center={center} zoom={5} scrollWheelZoom={true}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -20,7 +20,7 @@ function CrearMapaRutaLeaflet(props) {
                 
             </MapContainer>
             <hr />
-            <MapContainer center={center} zoom={5} scrollWheelZoom={true}>
+            <MapContainer className="mapas-leaflet2" center={center} zoom={5} scrollWheelZoom={true}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

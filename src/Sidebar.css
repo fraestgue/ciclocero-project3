@@ -2,18 +2,18 @@
     position: fixed;
     width: 36px;
     height: 30px;
-    left: 36px;
-    top: 36px;
+    left: 25px;
+    top: 60px;
 }
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-    background: #373a47;
+    background: #fbc344;
 }
 
 /* Color/shape of burger icon bars on hover*/
 .bm-burger-bars-hover {
-    background: #fbc344;
+    background: antiquewhite;
 }
 
 /* Position and sizing of clickable cross button */
@@ -34,6 +34,7 @@
 .bm-menu-wrap {
     position: fixed;
     height: 100%;
+    z-index: 100;
 }
 
 /* General sidebar styles */

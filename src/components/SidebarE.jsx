@@ -16,7 +16,7 @@ function SidebarE() {
     };
 
     return (
-        <Menu>
+        <Menu className="burger-button menu-sidebar">
             <Link className="menu-item" to={"/crear-ruta"}>
                 <p>Crea una ruta</p>
             </Link>

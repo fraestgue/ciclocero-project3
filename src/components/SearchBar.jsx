@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import service from "../service/config.service";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Spinner from "./Spinner"
 
 function SearchBar() {
     const [searchQuery, setSearchQuery] = useState("");
@@ -19,7 +20,7 @@ function SearchBar() {
 
         const delay = setTimeout(async () => {
             try {
-                const response = await service.get(`/rutas?provincia=${searchQuery}`);
+                const response = await service.get(`/rutas?queryValue=${searchQuery}`);
                 console.log(response.data);
                 setSearchRuta(response.data);
                 setSpinner(false);
@@ -42,17 +43,18 @@ function SearchBar() {
 
     return (
         <div>
-            <div className="searchbar">
+            <div className="spinner2">
                 <input
                     className="barra"
                     autoFocus
                     type="text"
-                    autoComplete="off"
+                    autoComplete="on"
                     placeholder="busca rutas"
                     value={searchQuery}
                     onChange={handleSearch}
+                    autoCapitalize="words"
                 />
-                {spinner === true && <h3>...buscando</h3>}
+                {spinner === true && <Spinner />}
             </div>
             <div></div>
 

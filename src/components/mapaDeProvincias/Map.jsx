@@ -14,7 +14,7 @@ function Map() {
             <ComposableMap
                 projection="geoMercator"
                 projectionConfig={{
-                    scale: 2800,
+                    scale: 2500,
                     center: [-2, 39.25]
                 }}
                 fill="white"
