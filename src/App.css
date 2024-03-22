@@ -105,12 +105,11 @@ body {
 
 .parrafo-about {
     display: flex;
+    margin-left: 15%;
+    margin-right: 20%;
     flex-direction: column;
-    justify-content: center;
     text-align: justify;
-    align-items: center;
     width: 70vw;
-    margin-left: 40px;
     border: 2px solid #045474;
     border-radius: 10px;
     padding: 20px;
@@ -304,5 +303,12 @@ button {
     }
     .spinner {
         padding-left: 0px;
+    }
+    .nombres-about {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-left: 20%;
+        margin-right: 20%;
     }
 }
