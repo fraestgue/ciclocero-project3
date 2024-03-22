@@ -13,9 +13,9 @@ usuarios pueden crear, descubrir y compartir sus rutas favoritas para bicicleta,
 
 Toda la App ha sido desarrollada con con herramientas de React, JavaScript, CSS, Node, Express, además de las librerias de <a href="https://react-leaflet.js.org/">Leaflet</a>, <a href="https://www.react-simple-maps.io/">react-simple-maps </a>, <a href="https://cloudinary.com/">Cloudinary</a>, <a href="https://www.davidhu.io/react-spinners/"> REACT SPINNERS by David Hu </a>, <a href="https://react-bootstrap.netlify.app/">Bootstrap</a> y <a href="https://www.npmjs.com/package/react-burger-menu">react-burger-menu</a>
 
-#### [Client Repo here]()
+#### [Client Repo here](https://github.com/fraestgue/ciclocero-project3)
 
-#### [Server Repo here]()
+#### [Server Repo here](https://github.com/PabloSanchezCamara/ciclocero-server-project)
 
 ## Technologies, Libraries & APIs used
 
@@ -29,6 +29,7 @@ Toda la App ha sido desarrollada con con herramientas de React, JavaScript, CSS,
 -   Express
 -   MongoDB
 -   Node.js
+-   React Context
 
 ## Librerias:
 
@@ -127,4 +128,4 @@ Toda la App ha sido desarrollada con con herramientas de React, JavaScript, CSS,
 
 ### Slides
 
-[Slides Link]()
+[Slides Link](https://docs.google.com/presentation/d/12-Q07jMcPCNBzKuRjoFAa8XXq2U0fdJgXHGUdvWhvzY/edit?hl=es#slide=id.g2c5787f0142_0_101)
