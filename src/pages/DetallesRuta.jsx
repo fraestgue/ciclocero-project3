@@ -60,6 +60,9 @@ function DetallesRuta({ loggedUserId }) {
                 width={"300px"}
             />
             <div>
+                <h5>Ruta creada por {detallesRuta.creador.username}</h5>
+            </div>
+            <div>
                 {detallesRuta.provincia[0].toUpperCase() +
                     detallesRuta.provincia.slice(1)}
             </div>
@@ -69,30 +72,29 @@ function DetallesRuta({ loggedUserId }) {
             </div>
             <div>
                 {detallesRuta.difficulty[0].toUpperCase() +
-                    detallesRuta.difficulty.slice(1)} | {detallesRuta.modalidad[0].toUpperCase() +
-                        detallesRuta.modalidad.slice(1)} |{" "}
+                    detallesRuta.difficulty.slice(1)}{" "}
+                |{" "}
+                {detallesRuta.modalidad[0].toUpperCase() +
+                    detallesRuta.modalidad.slice(1)}{" "}
+                |{" "}
             </div>
-                <div className="mapa-detalles-ruta">
-            <MapContainer center={center} zoom={5} scrollWheelZoom={true} >
-                <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                <MostrarRuta
-                    detallesRuta={detallesRuta}
-                    setDetallesRuta={setDetallesRuta}
-                    setClickedPosition={setClickedPosition}
-                />
-
-                {/* <MarcarPuntosRuta />
-                <ClickMarker setClickedPosition={setClickedPosition} />
-                {clickedPosition !== null && (
-                    <Marker position={clickedPosition} />
-                )} */}
-            </MapContainer>
-</div>
+            <div className="mapa-detalles-ruta">
+                <MapContainer center={center} zoom={5} scrollWheelZoom={true}>
+                    <TileLayer
+                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    <MostrarRuta
+                        detallesRuta={detallesRuta}
+                        setDetallesRuta={setDetallesRuta}
+                        setClickedPosition={setClickedPosition}
+                    />
+                </MapContainer>
+            </div>
             <div>
-                {detallesRuta.creador === loggedUserId ? <BorrarRuta /> : null}
+                {detallesRuta.creador._id === loggedUserId ? (
+                    <BorrarRuta />
+                ) : null}
             </div>
 
             <div>

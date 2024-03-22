@@ -1,7 +1,11 @@
 import React from "react";
 import Spinner from "../../components/Spinner";
+import { useNavigate } from "react-router-dom";
 
 function Error500() {
+    const navigate = useNavigate();
+
+    const handleHome = () => navigate("/");
     return (
         <div>
             {/* <Spinner /> */}
@@ -9,6 +13,8 @@ function Error500() {
                 ERROR AL CONECTAR CON EL SERVIDOR. VUELVE A INTENTARLO EN UNOS
                 MINUTOS
             </h1>
+
+            <button onClick={handleHome}>VUELVE AL INICIO</button>
         </div>
     );
 }

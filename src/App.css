@@ -24,7 +24,7 @@
     background-color: antiquewhite;
 }
 
-.carrousel{
+.carrousel {
     padding-top: 10px;
 }
 
@@ -47,8 +47,7 @@
 
 body {
     margin: 0px;
-  }
-
+}
 
 .homepage {
     padding-top: -50px;
@@ -98,10 +97,10 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px black;
-    color:#045474
+    color: #045474;
 }
 .image-card {
-    width:150px
+    width: 150px;
 }
 
 .parrafo-about {
@@ -216,12 +215,11 @@ button {
     border-radius: 9px;
     box-shadow: 0 2px 2px black;
 }
-.mapa-detalles-ruta{
+.mapa-detalles-ruta {
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
 }
-
 
 @media (max-width: 450px) {
     .mapas-leaflet {
@@ -275,20 +273,20 @@ button {
         margin-left: 20px;
         margin-right: 10px;
     }
-    
+
     .card2 {
         width: 90vw;
         background-color: #fbc344;
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 2px 4px black;
-        color:#045474;
+        color: #045474;
         text-decoration: none;
     }
     .image-card {
-        width:300px
+        width: 300px;
     }
-    .mapa-detalles-ruta{
+    .mapa-detalles-ruta {
         margin-left: 20px;
         margin-bottom: 10px;
     }
@@ -303,5 +301,8 @@ button {
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 2px 4px black;
+    }
+    .spinner {
+        padding-left: 0px;
     }
 }

@@ -22,57 +22,53 @@ function App() {
     return (
         <div className="app">
             <NavbarComp />
+            <Routes>
+                <Route
+                    path={"/"}
+                    element={
+                        isLoggedIn === true ? <Homepage /> : <AccessPage />
+                    }
+                />
+                <Route
+                    path={"/crear-ruta"}
+                    element={isLoggedIn === true && <CrearRuta />}
+                />
+                <Route
+                    path={"/rutas/:rutaId"}
+                    element={
+                        isLoggedIn === true && (
+                            <DetallesRuta loggedUserId={loggedUserId} />
+                        )
+                    }
+                />
+                <Route
+                    path={"/rutas"}
+                    element={isLoggedIn === true && <Rutas />}
+                />
+                <Route
+                    path={"/rutas/provincia/:provincia"}
+                    element={isLoggedIn === true && <RutasProvincia />}
+                />
+                <Route
+                    path={"/profile"}
+                    element={isLoggedIn === true && <UserProfile />}
+                />
+                <Route
+                    path={"/user-rutas"}
+                    element={
+                        isLoggedIn === true && (
+                            <UserRutas loggedUserId={loggedUserId} />
+                        )
+                    }
+                />
 
-            {/* <div className="pagina"> */}
-                <Routes>
-                    <Route
-                        path={"/"}
-                        element={
-                            isLoggedIn === true ? <Homepage /> : <AccessPage />
-                        }
-                    />
-                    <Route
-                        path={"/crear-ruta"}
-                        element={isLoggedIn === true && <CrearRuta />}
-                    />
-                    <Route
-                        path={"/rutas/:rutaId"}
-                        element={
-                            isLoggedIn === true && (
-                                <DetallesRuta loggedUserId={loggedUserId} />
-                            )
-                        }
-                    />
-                    <Route
-                        path={"/rutas"}
-                        element={isLoggedIn === true && <Rutas />}
-                    />
-                    <Route
-                        path={"/rutas/provincia/:provincia"}
-                        element={isLoggedIn === true && <RutasProvincia />}
-                    />
-                    <Route
-                        path={"/profile"}
-                        element={isLoggedIn === true && <UserProfile />}
-                    />
-                    <Route
-                        path={"/user-rutas"}
-                        element={
-                            isLoggedIn === true && (
-                                <UserRutas loggedUserId={loggedUserId} />
-                            )
-                        }
-                    />
+                <Route path={"/about"} element={<About />} />
 
-                    <Route path={"/about"} element={<About />} />
+                <Route path={"/error500"} element={<Error500 />} />
+                <Route path={"*"} element={<Error404 />} />
+            </Routes>
 
-                    <Route path={"/error500"} element={<Error500 />} />
-                    <Route path={"*"} element={<Error404 />} />
-                </Routes>
-            {/* </div>
-            <div className="footer-container"> */}
-                <Footer />
-            {/* </div> */}
+            <Footer />
         </div>
     );
 }
