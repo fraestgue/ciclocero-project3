@@ -1,6 +1,6 @@
 # CICLOCERO
 
-## [ Prueba la App!] ()
+## [ Prueba la App!] (https://ciclocero.netlify.app/)
 
 ![App logo](/src/assets/logo.png)
 
@@ -32,9 +32,17 @@ Toda la App ha sido desarrollada con con herramientas de React, JavaScript, CSS,
 
 ## Librerias:
 
-#### [Bootstrap] (https://react-bootstrap.netlify.app/)
+#### [Bootstrap](https://react-bootstrap.netlify.app/)
 
-#### [REACT SPINNERS by David Hu] (https://www.davidhu.io/react-spinners/)
+#### [REACT SPINNERS by David Hu](https://www.davidhu.io/react-spinners/)
+
+### [Leaflet](https://react-leaflet.js.org/)
+
+### [react-simple-maps](https://www.react-simple-maps.io/)
+
+### [Cloudinary](https://cloudinary.com/)
+
+### [react-burger-menu](https://www.npmjs.com/package/react-burger-menu)
 
 ## Backlog Functionalities
 
@@ -65,7 +73,8 @@ Toda la App ha sido desarrollada con con herramientas de React, JavaScript, CSS,
 | Path                          | Page                 | Components                                                                      | Behavior                |
 | ----------------------------- | -------------------- | ------------------------------------------------------------------------------- | ----------------------- |
 | `/`                           | Homepage / AccesPage | Carrousel / TextoSinLogin, Login, Signup                                        | Home page / Access Page |
-| `/rutas/:rutaId`              | DetallesRuta         | MapContainer, TileLayer, MostrarRuta, BorrarRuta, FormCrearReseña, BorrarReseña | Detalles de una ruta    |
+| `/crear-ruta`                 | DetallesRuta         | MapContainer, TileLayer, MostrarRuta, BorrarRuta, FormCrearReseña, BorrarReseña | Detalles de una ruta    |
+| `/rutas/:rutaId`              | CrearRuta            | FormCrearRuta                                                                   | Crear una ruta          |
 | `/rutas`                      | Rutas                |                                                                                 | Todas las rutas         |
 | `/rutas/provincia/:provincia` | RutasProvincia       |                                                                                 | Rutas por provincia     |
 | `/profile`                    | UserProfile          | FormEditarUser                                                                  | Perfil del usuario      |
@@ -78,8 +87,19 @@ Toda la App ha sido desarrollada con con herramientas de React, JavaScript, CSS,
 
 -   NavbarComp
 -   Footer
--   Pacman
--   Searchbar
+-   Spinner
+-   SearchBar
+-   Map
+-   ClickMaker
+-   ClickMakerEnd
+-   CrearMapaRutaLeaflet
+-   EditarEmail
+-   EditarFotoUser
+-   EditarPassword
+-   EditarUsername
+-   FotoReseña
+-   FotoRuta
+-   SidebarE
 
 ## Links
 
@@ -94,3 +114,17 @@ Toda la App ha sido desarrollada con con herramientas de React, JavaScript, CSS,
     [Linkedin](https://www.linkedin.com/in/pablo-sanchez-camara-b143892b4/)
 
 ### Project
+
+[Repository Link Client](https://github.com/fraestgue/ciclocero-project3)
+
+[Repository Link Server](https://github.com/PabloSanchezCamara/ciclocero-server-project)
+
+[Deploy Link](https://ciclocero.netlify.app/)
+
+### Excalidraw
+
+[Link](https://excalidraw.com/#json=CIH812HxVxiC39UfiBA_S,ooDX6aZCkTnmbT5LN88csw)
+
+### Slides
+
+[Slides Link]()
