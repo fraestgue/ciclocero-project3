@@ -133,7 +133,7 @@ function About() {
                                     width={"50px"}
                                 />
                             </a>{" "}
-                            |{" "}
+                            {" "}
                             <a href="https://www.linkedin.com/in/pablo-sanchez-camara-b143892b4/">
                                 {" "}
                                 <img
@@ -155,7 +155,7 @@ function About() {
                                     width={"50px"}
                                 />
                             </a>{" "}
-                            |{" "}
+                            {" "}
                             <a href="https://www.linkedin.com/in/francisco-estepa-guerra-400417163/">
                                 {" "}
                                 <img
