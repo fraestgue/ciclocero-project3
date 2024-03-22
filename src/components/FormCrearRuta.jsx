@@ -142,13 +142,15 @@ function FormCrearRuta() {
 
                 <FotoRuta setImage={setImage} image={image} />
 
-                <button>Crear ruta</button>
-            </form>
+                
+            
 
             <CrearMapaRutaLeaflet
                 setCoordinatesStart={setCoordinatesStart}
                 setCoordinatesEnd={setCoordinatesEnd}
             />
+            <hr />
+            <button>Crear ruta</button> </form>
         </div>
     );
 }

@@ -4,7 +4,7 @@ import Spinner from "../../components/Spinner";
 function Error500() {
     return (
         <div>
-            <Spinner />
+            {/* <Spinner /> */}
             <h1>
                 ERROR AL CONECTAR CON EL SERVIDOR. VUELVE A INTENTARLO EN UNOS
                 MINUTOS

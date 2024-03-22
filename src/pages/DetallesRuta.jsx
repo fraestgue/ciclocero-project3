@@ -68,10 +68,12 @@ function DetallesRuta({ loggedUserId }) {
                 {detallesRuta.duracionEnHoras}h
             </div>
             <div>
-                {detallesRuta.difficulty} | {detallesRuta.modalidad} |{" "}
+                {detallesRuta.difficulty[0].toUpperCase() +
+                    detallesRuta.difficulty.slice(1)} | {detallesRuta.modalidad[0].toUpperCase() +
+                        detallesRuta.modalidad.slice(1)} |{" "}
             </div>
-
-            <MapContainer center={center} zoom={5} scrollWheelZoom={true}>
+                <div className="mapa-detalles-ruta">
+            <MapContainer center={center} zoom={5} scrollWheelZoom={true} >
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -88,7 +90,7 @@ function DetallesRuta({ loggedUserId }) {
                     <Marker position={clickedPosition} />
                 )} */}
             </MapContainer>
-
+</div>
             <div>
                 {detallesRuta.creador === loggedUserId ? <BorrarRuta /> : null}
             </div>

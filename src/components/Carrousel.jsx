@@ -42,7 +42,7 @@ function Carrousel() {
     }
 
     return (
-        <div>
+        <div className="carrousel">
             {rutasCarruselArr === null ? null : (
                 <Carousel>
                     {rutasCarruselArr.map((eachRuta) => {

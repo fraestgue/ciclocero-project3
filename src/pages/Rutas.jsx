@@ -34,11 +34,11 @@ function Rutas() {
             <button onClick={handleBack} className="btn-atras">
                 <img src={btnAtras} alt="atras" width="25px" />
             </button>
-            <div className="card-container">
+            <div className="card-container2">
                 {rutas.map((eachRuta) => {
                     return (
                         <Link to={`/rutas/${eachRuta._id}`} key={eachRuta._id}>
-                            <div className="card">
+                            <div className="card2">
                                 <h3>{eachRuta.name}</h3>
                                 <img
                                     src={eachRuta.image}

@@ -32,7 +32,7 @@ function FotoRuta(props) {
         <div>
             {" "}
             <div>
-                <div>
+                <div style={{marginTop:"5px"}}>
                     <label>Image: </label>
                     <input
                         type="file"

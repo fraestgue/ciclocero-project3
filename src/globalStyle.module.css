@@ -12,13 +12,14 @@
 @media (max-width: 450px) {
     .mapContainerWrapper {
         width: 80vw;
-        height: 40vh;
+        height: 42vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         background: #045474;
         padding: 20px;
+        margin-left: 40px;
         
     }
 }

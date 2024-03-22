@@ -45,7 +45,7 @@ function FormCrearReseña(props) {
     return (
         <div>
             <div>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className="form">
                     <label>Titulo </label>
                     <input type="text" name="title" onChange={handleTitle} />
                     <label>Descripción </label>
